@@ -1043,7 +1043,7 @@ const commandHandlers = {
     },
     '🚚 Доставка': (chatId) => {
         // Логика для команды "Доставка"
-        bot.sendMessage(chatId, 'доставка: ');
+        bot.sendMessage(chatId, 'Ссылка для ознакомления\nhttps://telegra.ph/Dostavka-04-22-4');
     },
     '/admin_panel': (chatId) => {
         userContext[chatId] = { awaitingResponse: true };
