@@ -1011,7 +1011,7 @@ const commandHandlers = {
         const optsOrder = {
             reply_markup: JSON.stringify({
                 inline_keyboard: [
-                    [{ text: 'ℹ️ '  + 'Ознакомиться', url: 'https://telegra.ph/CHasto-zadavaemye-voprosy-04-06-10' }],
+                    [{ text: 'ℹ️ '  + 'Ознакомиться', callback_data: 'warning' }],
                     [{ text: '❌ ' + 'Закрыть', callback_data: 'close' }, { text: '➡️ ' + 'Продолжить', callback_data: 'continue' }],
                 ]
             })
@@ -1039,7 +1039,7 @@ const commandHandlers = {
     },
     '❓ FAQ': (chatId) => {
         // Логика для команды "FAQ"
-        bot.sendMessage(chatId, 'Вы выбрали: FAQ');
+        bot.sendMessage(chatId, 'Ссылка на часто задаваемые вопросы: \nhttps://telegra.ph/CHasto-zadavaemye-voprosy-04-06-10');
     },
     '🚚 Доставка': (chatId) => {
         // Логика для команды "Доставка"
@@ -1342,6 +1342,11 @@ bot.on('callback_query', (callbackQuery) => {
         }
 
         connect();
+    }
+    else if(data === 'warning') {
+        const img = 'img/warning.jpg';
+        bot.sendPhoto(chatId, img)
+
     }
 });
 
